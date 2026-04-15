@@ -43,6 +43,46 @@ code {
   min-height: 100vh;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 32px rgba(212, 176, 117, 0.08);
+  }
+  50% {
+    box-shadow: 0 0 54px rgba(212, 176, 117, 0.18);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .page-shell {
   min-height: 100vh;
   padding: 32px 20px 48px;
@@ -72,6 +112,7 @@ code {
   border-radius: 32px;
   min-height: calc(100vh - 80px);
   align-items: end;
+  animation: fadeInUp 0.95s ease both;
 }
 
 .eyebrow {
@@ -102,6 +143,7 @@ p {
   justify-content: end;
   min-height: 100%;
   padding: 24px;
+  animation: fadeInUp 0.95s ease 0.15s both;
 }
 
 .lead-text {
@@ -152,6 +194,7 @@ p {
 .hero-feature {
   display: flex;
   align-items: stretch;
+  animation: fadeInUp 0.95s ease 0.25s both;
 }
 
 .chef-stage {
@@ -173,6 +216,7 @@ p {
     radial-gradient(circle at top, rgba(216, 176, 111, 0.24), transparent 55%),
     linear-gradient(180deg, rgba(54, 38, 29, 0.9), rgba(22, 15, 12, 0.45));
   border: 1px solid rgba(216, 176, 111, 0.12);
+  animation: glowPulse 8s ease-in-out infinite;
 }
 
 .chef-image {
@@ -183,6 +227,7 @@ p {
   max-height: 720px;
   object-fit: contain;
   filter: drop-shadow(0 28px 55px rgba(0, 0, 0, 0.45));
+  animation: floatSlow 8s ease-in-out infinite both;
 }
 
 .feature-card {
@@ -228,6 +273,7 @@ p {
   margin-bottom: 24px;
   padding: 28px 32px;
   border-radius: 30px;
+  animation: fadeInUp 0.95s ease both;
 }
 
 .menu-title {
@@ -255,9 +301,19 @@ p {
   gap: 24px;
   padding: 28px;
   border-radius: 30px;
+  animation: scaleIn 0.8s ease both;
+}
+
+.menu-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.menu-card:nth-child(2) {
+  animation-delay: 0.2s;
 }
 
 .menu-copy {
+  animation: fadeInUp 0.95s ease 0.15s both;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -289,6 +345,7 @@ p {
   background:
     radial-gradient(circle at top, rgba(216, 176, 111, 0.14), transparent 45%),
     rgba(255, 255, 255, 0.02);
+  animation: fadeInUp 0.95s ease 0.2s both;
 }
 
 .menu-image {
@@ -297,6 +354,11 @@ p {
   height: 100%;
   min-height: 260px;
   object-fit: cover;
+  transition: transform 450ms ease;
+}
+
+.menu-image:hover {
+  transform: scale(1.02);
 }
 
 @media (max-width: 720px) {
